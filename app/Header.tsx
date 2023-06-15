@@ -8,7 +8,7 @@ export const Header = ({
   setDarkTheme: (value: SetStateAction<boolean>) => void;
 }) => {
   return (
-    <header className="h-20 bg-white flex justify-between items-center shadow-md px-4">
+    <header className="h-20 bg-white flex justify-between items-center shadow-md px-4 dark:bg-darkBlue">
       <h1 className="font-[800] text-lg">Where in the world?</h1>
       <button
         className="flex justify-center items-center"
@@ -21,9 +21,7 @@ export const Header = ({
         >
           dark_mode
         </span>
-        <p className="font-[600] text-[14px]">
-          {darkTheme ? "Light" : "Dark"} Mode
-        </p>
+        <p className="font-[600] text-[14px]">Dark Mode</p>
       </button>
     </header>
   );

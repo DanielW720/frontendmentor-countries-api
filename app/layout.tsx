@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${darkTheme && "dark"}`}>
       <body
-        className={`${nunitoSans.className} bg-white dark:bg-veryDarkBlueBG dark:text-veryDarkBlueText`}
+        className={`${nunitoSans.className} bg-white dark:bg-veryDarkBlueBG text-veryDarkBlueText dark:text-white`}
       >
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         {children}
