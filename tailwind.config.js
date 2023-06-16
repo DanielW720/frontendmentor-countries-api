@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        mdSymmetric: "rgba(17, 17, 26, 0.1) 0px 2px 20px",
+      },
       colors: {
         // Dark mode
         darkBlue: "hsl(209, 23%, 22%)",
