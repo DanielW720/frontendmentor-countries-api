@@ -8,8 +8,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "400px",
+      },
       boxShadow: {
         mdSymmetric: "rgba(17, 17, 26, 0.1) 0px 2px 20px",
+        lgSymmetric: "rgba(17, 17, 26, 0.3) 0px 2px 10px",
       },
       colors: {
         // Dark mode

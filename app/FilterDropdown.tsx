@@ -15,7 +15,7 @@ export const FilterDropdown = () => {
           <DropdownMenu.Group className="bg-white dark:bg-darkBlue w-full rounded-md p-4 shadow-mdSymmetric">
             {["Africa", "America", "Asia", "Europe", "Oceania"].map(
               (region) => (
-                <DropdownMenu.Item className="font-semibold my-1">
+                <DropdownMenu.Item key={region} className="font-semibold my-1">
                   {region}
                 </DropdownMenu.Item>
               )
