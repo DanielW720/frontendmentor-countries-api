@@ -7,11 +7,10 @@ import { FilterDropdown } from "./FilterDropdown";
 export default function Home() {
   return (
     <main className="min-h-screen pt-8">
-      <Searchbar />
-      {/* <Filter /> */}
-
-      {/* Trying out radix */}
-      <FilterDropdown />
+      <div className="flex flex-col md:flex-row md:items-center px-6 justify-between">
+        <Searchbar />
+        <FilterDropdown />
+      </div>
 
       {/* Content */}
       <article className="flex flex-col items-center justify-start">

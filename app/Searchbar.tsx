@@ -17,7 +17,7 @@ export const Searchbar = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
-    <div className="w-full px-6">
+    <div className="w-full max-w-[26rem]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="shadow-mdSymmetric h-16 flex flex-row items-center justify-start dark:bg-darkBlue rounded-md"
@@ -27,7 +27,7 @@ export const Searchbar = () => {
           type="text"
           {...register("query")}
           placeholder="Search for a country..."
-          className="bg-inherit outline-none"
+          className="bg-inherit outline-none overflow-hidden"
         />
         <input type="submit" className="hidden" />
       </form>
