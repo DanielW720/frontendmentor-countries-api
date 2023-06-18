@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export const CountryCard = ({ imageUrl }: { imageUrl: string }) => {
   return (
-    <div className="shadow-md flex flex-col items-start justify-start rounded-lg dark:bg-darkBlue">
-      <div className="relative w-[256px] h-[156px] p-0 m-0">
+    <div className="shadow-md flex flex-col items-start justify-start rounded-lg dark:bg-darkBlue w-[256px]">
+      <div className="relative w-full h-[156px] p-0 m-0">
         <Image
           src={imageUrl}
           alt="Germany flag"
@@ -19,15 +19,15 @@ export const CountryCard = ({ imageUrl }: { imageUrl: string }) => {
         <h2 className="font-bold text-lg my-4">Germany</h2>
         <ul>
           <li className="my-1">
-            <span className="font-semibold">Population:</span>{" "}
+            <span className="font-semibold">Population: </span>
             <span className="dark:text-cardLightGrayText">{"81,770,900"}</span>
           </li>
           <li className="my-1">
-            <span className="font-semibold">Region:</span>{" "}
+            <span className="font-semibold">Region: </span>
             <span className="dark:text-cardLightGrayText">{"Europe"}</span>
           </li>
           <li className="my-1">
-            <span className="font-semibold">Captiol:</span>{" "}
+            <span className="font-semibold">Captiol: </span>
             <span className="dark:text-cardLightGrayText">{"Berlin"}</span>
           </li>
         </ul>
