@@ -8,7 +8,7 @@ export default async function page({
   params: { country: string };
 }) {
   return (
-    <div>
+    <div className="px-2 lg:w-full lg:px-10">
       <Backbutton />
       <Details />
     </div>

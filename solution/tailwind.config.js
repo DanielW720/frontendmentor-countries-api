@@ -27,6 +27,9 @@ module.exports = {
         // Dark Mode Text & Light Mode Elements
         white: "#fff",
       },
+      gridTemplateColumns: {
+        oneThirdTwoThirds: "45% 55%",
+      },
     },
   },
   plugins: [],
