@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${nunitoSans.className} bg-white dark:bg-veryDarkBlueBG text-veryDarkBlueText dark:text-white`}
       >
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-        <main className="min-h-screen pt-8">{children}</main>
+        <main className="min-h-[calc(100vh - 5rem)] pt-8">{children}</main>
       </body>
     </html>
   );
