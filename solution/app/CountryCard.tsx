@@ -8,17 +8,14 @@ export const CountryCard = ({ imageUrl }: { imageUrl: string }) => {
 
   return (
     <Link href={`/${country}`}>
-      <div className="shadow-mdSymmetric flex flex-col items-start justify-start rounded-lg dark:bg-darkBlue w-[256px]">
-        <div className="relative w-full h-[156px] p-0 m-0">
+      <div className="shadow-mdSymmetric flex flex-col items-start justify-start rounded-lg dark:bg-darkBlue h-[340px] w-[256px]">
+        <div className="relative w-full h-[160px]">
           <Image
             src={imageUrl}
             alt="Germany flag"
             fill
-            style={{
-              // objectFit: "contain",
-              borderTopLeftRadius: "8px",
-              borderTopRightRadius: "8px",
-            }}
+            sizes="(max-width: 340px) 100vw"
+            className="rounded-t-lg"
           />
         </div>
         <div className="mt-2 ml-6 mb-8">

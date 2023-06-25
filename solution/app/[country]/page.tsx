@@ -8,11 +8,9 @@ export default async function page({
   params: { country: string };
 }) {
   return (
-    <div className="py-8 w-full px-8 flex justify-center">
-      <div className="max-w-[410px]">
-        <Backbutton />
-        <Details />
-      </div>
+    <div>
+      <Backbutton />
+      <Details />
     </div>
   );
 }

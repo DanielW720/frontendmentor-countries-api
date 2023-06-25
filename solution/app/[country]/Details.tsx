@@ -1,15 +1,9 @@
-import Image from "next/image";
+import { CountryFlag } from "./CountryFlag";
 
 export const Details = () => {
   return (
     <article className="grid grid-cols-1 gap-10 justify-items-center mt-16">
-      <Image
-        src="https://flagcdn.com/w320/be.png"
-        alt="Country flag"
-        width={350}
-        height={240}
-        className="shadow-md"
-      />
+      <CountryFlag />
       <div className="justify-self-start flex flex-col w-full">
         <h2 className="text-3xl font-bold">Belgium</h2>
         <ul className="my-6">
