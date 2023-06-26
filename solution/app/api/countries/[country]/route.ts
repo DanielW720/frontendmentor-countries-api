@@ -13,5 +13,7 @@ export async function GET(request: NextRequest) {
     `https://restcountries.com/v3.1/name/${country}?fields=name`
   );
 
+  if (!res.ok) throw new Error("Couldn't fetch country");
+
   return NextResponse.json(await res.json());
 }

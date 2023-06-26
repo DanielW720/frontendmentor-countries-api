@@ -1,13 +1,13 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { Filter } from "./Filter";
+import { FilterButton } from "./FilterButton";
 
 export const FilterDropdown = () => {
   return (
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger className="w-[225px]">
-        <Filter />
+        <FilterButton />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
