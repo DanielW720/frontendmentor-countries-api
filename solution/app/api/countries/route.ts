@@ -1,7 +1,7 @@
-import { Country, CountryRaw } from "@/app/types/country";
+import { Country } from "@/app/types/country";
 import { NextResponse } from "next/server";
 
-const DATA_SOURCE_URL = "https://restcountries.com/v3.1/all?fields=name,flags";
+const DATA_SOURCE_URL = "https://restcountries.com/v3.1/all";
 
 /**
  * Fetch all countries.
@@ -12,16 +12,50 @@ export async function GET() {
 
   if (!res.ok) throw new Error("Couldn't fetch countries");
 
-  const resJson: CountryRaw[] = await res.json();
+  const resJson: Country[] = await res.json();
 
-  const resArray: Country[] = [];
+  const countries: Country[] = [];
   resJson.forEach((country) => {
-    resArray.push({
-      flag: country.flags.png,
-      name: country.name.common,
-      officialName: country.name.official,
+    // Iterating over dynamic keys for currencies
+    const currencies = {} as Country["currencies"];
+    if (country.currencies) {
+      Object.keys(country.currencies).forEach((key) => {
+        currencies[key] = {
+          name: country.currencies[key].name,
+          symbol: country.currencies[key].symbol,
+        };
+      });
+    }
+
+    // Iterating over dynamic keys for nativeNames
+    const nativeName = {} as Country["name"]["nativeName"];
+    if (country.name.nativeName) {
+      Object.keys(country.name.nativeName).forEach((key) => {
+        nativeName[key] = {
+          official: country.name.nativeName[key].official,
+          common: country.name.nativeName[key].common,
+        };
+      });
+    }
+
+    countries.push({
+      flags: {
+        png: country.flags.png,
+        alt: country.flags.alt,
+      },
+      population: country.population,
+      region: country.region,
+      subregion: country.subregion,
+      capital: country.capital,
+      tkd: country.tkd,
+      currencies,
+      name: {
+        common: country.name.common,
+        official: country.name.official,
+        nativeName,
+      },
     });
   });
 
-  return NextResponse.json(resArray);
+  return NextResponse.json(countries);
 }

@@ -5,7 +5,9 @@ import { FilterDropdown } from "./FilterDropdown";
 import { Country } from "./types/country";
 
 async function fetchCountries() {
-  const data = await fetch("http://localhost:3000/api/countries");
+  const data = await fetch("http://localhost:3000/api/countries", {
+    cache: "no-store",
+  });
   return data.json();
 }
 

@@ -1,19 +1,24 @@
 export type Country = {
-  flag: string;
-  name: string;
-  officialName: string;
-};
-
-export type CountryRaw = {
   flags: {
     png: string;
     alt: string;
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  capital: string;
+  tkd: string[];
+  currencies: {
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
   };
   name: {
     common: string;
     official: string;
     nativeName: {
-      ara: {
+      [key: string]: {
         official: string;
         common: string;
       };
