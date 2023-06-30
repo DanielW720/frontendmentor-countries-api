@@ -8,7 +8,9 @@ export const CountryFlag = () => {
         alt="Country flag"
         fill
         sizes="(max-width: 350px) 100vw"
-        className="shadow-md "
+        className="shadow-md"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPkf71zFQAFIwJfy/HRLAAAAABJRU5ErkJggg=="
       />
     </div>
   );

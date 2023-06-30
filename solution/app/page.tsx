@@ -12,7 +12,7 @@ async function fetchCountries() {
 export default async function page() {
   const countries: Country[] = await fetchCountries();
 
-  const sixCountries = countries.slice(0, 6);
+  const sixCountries = countries.slice(0, 18);
 
   return (
     <>

@@ -13,6 +13,8 @@ export const CountryCard = ({ country }: { country: Country }) => {
             fill
             sizes="(max-width: 340px) 100vw"
             className="rounded-t-lg"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPkf71zFQAFIwJfy/HRLAAAAABJRU5ErkJggg=="
           />
         </div>
         <div className="mt-2 ml-6 mb-8">
