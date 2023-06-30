@@ -10,9 +10,9 @@ async function fetchCountries() {
 }
 
 export default async function page() {
-  const countries: Country[] = await fetchCountries();
+  const data: Country[] = await fetchCountries();
 
-  const sixCountries = countries.slice(0, 18);
+  const countries = data.slice(0, 9);
 
   return (
     <>
@@ -24,7 +24,7 @@ export default async function page() {
       </div>
       <article className="py-10 flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 lg:gap-16 w-fit">
-          {sixCountries.map((country) => (
+          {countries.map((country) => (
             <CountryCard key={country.name.common} country={country} />
           ))}
         </div>

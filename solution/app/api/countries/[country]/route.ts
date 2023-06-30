@@ -1,3 +1,4 @@
+import { Country } from "@/app/types/country";
 import { NextRequest, NextResponse } from "next/server";
 
 /**
@@ -9,11 +10,11 @@ export async function GET(request: NextRequest) {
   const uri = request.nextUrl.pathname;
   const country = uri.slice(uri.lastIndexOf("/") + 1);
 
-  const res = await fetch(
-    `https://restcountries.com/v3.1/name/${country}?fields=name`
-  );
+  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
 
   if (!res.ok) throw new Error("Couldn't fetch country");
 
-  return NextResponse.json(await res.json());
+  const countryJson: Country[] = await res.json();
+
+  return NextResponse.json(countryJson[0]);
 }

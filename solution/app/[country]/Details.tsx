@@ -1,12 +1,13 @@
+import { Country } from "../types/country";
 import { CountryFlag } from "./CountryFlag";
 
-export const Details = () => {
+export const Details = ({ country }: { country: Country }) => {
   return (
     <article className="grid grid-cols-1 lg:grid-cols-oneThirdTwoThirds gap-10 justify-items-start mt-16 w-full lg:gap-0">
       <CountryFlag />
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
         <h2 className="text-3xl font-bold lg:col-start-1 lg:col-end-3 lg:mt-4">
-          Belgium
+          {country.name.common}
         </h2>
         <ul className="my-6">
           <li className="my-2">
