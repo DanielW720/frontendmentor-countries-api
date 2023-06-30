@@ -38,6 +38,14 @@ export async function GET() {
       });
     }
 
+    // Iterating over dynamic keys for languages
+    const languages = {} as Country["languages"];
+    if (country.languages) {
+      Object.keys(country.languages).forEach((key) => {
+        languages[key] = country.languages[key];
+      });
+    }
+
     countries.push({
       flags: {
         png: country.flags.png,
@@ -49,6 +57,8 @@ export async function GET() {
       capital: country.capital,
       tkd: country.tkd,
       currencies,
+      languages,
+      borders: country.borders,
       name: {
         common: country.name.common,
         official: country.name.official,

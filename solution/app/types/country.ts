@@ -14,6 +14,10 @@ export type Country = {
       symbol: string;
     };
   };
+  languages: {
+    [key: string]: string;
+  };
+  borders: string[];
   name: {
     common: string;
     official: string;
