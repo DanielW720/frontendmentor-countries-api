@@ -9,7 +9,7 @@ export const CountryCard = ({ country }: { country: Country }) => {
         <div className="relative w-full h-[160px]">
           <Image
             src={country.flags.png}
-            alt="Germany flag"
+            alt={country.flags.alt ? country.flags.alt : ""}
             fill
             sizes="(max-width: 340px) 100vw"
             className="rounded-t-lg"

@@ -10,7 +10,7 @@ export const Details = ({ country }: { country: Country }) => {
         official: country.name.nativeName[key].official,
         common: country.name.nativeName[key].common,
       });
-      return <span>{nativeName.common}</span>;
+      return <span key={key}>{nativeName.common}</span>;
     });
 
   // Extract currencies
@@ -21,14 +21,14 @@ export const Details = ({ country }: { country: Country }) => {
         name: country.currencies[key].name,
         symbol: country.currencies[key].symbol,
       });
-      return <span>{currency.name}</span>;
+      return <span key={key}>{currency.name}</span>;
     });
 
   // Extract languages
   let languages;
   if (country.languages)
     languages = Object.keys(country.languages).map((key) => (
-      <span>{country.languages[key]}</span>
+      <span key={key}>{country.languages[key]}</span>
     ));
 
   // Extract bordering countries ()

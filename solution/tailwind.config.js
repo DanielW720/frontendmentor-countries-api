@@ -28,7 +28,7 @@ module.exports = {
         white: "#fff",
       },
       gridTemplateColumns: {
-        oneThirdTwoThirds: "45% 55%",
+        oneThirdTwoThirds: "49% 51%",
       },
     },
   },
