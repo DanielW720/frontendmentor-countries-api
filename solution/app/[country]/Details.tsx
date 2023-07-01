@@ -29,7 +29,7 @@ export const Details = ({ country }: { country: Country }) => {
   const bordersFullnames = country.bordersFullnames?.map((borderCountry) => (
     <div
       key={borderCountry}
-      className="py-1 shadow-lgSymmetric font-semibold w-24 flex justify-center items-center text-sm rounded-sm dark:bg-darkBlue"
+      className="py-1 px-4 shadow-lgSymmetric font-semibold w-28 flex justify-center items-center text-sm rounded-sm dark:bg-darkBlue"
     >
       {borderCountry}
     </div>
@@ -75,8 +75,8 @@ export const Details = ({ country }: { country: Country }) => {
             <p className="font-semibold">Languages: {languages}</p>
           </li>
         </ul>
-        <div className="flex flex-col lg:flex-row lg:items-center justify-center lg:justify-start mt-6 lg:mt-0 lg:col-start-1 lg:col-end-3 lg:h-20">
-          <h3 className="text-xl font-semibold justify-self-start lg:text-lg lg:mr-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-center lg:justify-start mt-6 lg:mt-0 lg:col-start-1 lg:col-end-3">
+          <h3 className="text-xl font-semibold lg:text-lg lg:mr-10">
             Border Countries:
           </h3>
           <div className="flex justify-center items-center mt-4 lg:mt-0">
