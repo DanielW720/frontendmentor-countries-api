@@ -7,7 +7,7 @@ export type Country = {
   region: string;
   subregion: string;
   capital: string;
-  tkd: string[];
+  tld: string[];
   currencies: {
     [key: string]: {
       name: string;
@@ -17,7 +17,8 @@ export type Country = {
   languages: {
     [key: string]: string;
   };
-  borders: string[];
+  borders?: string[];
+  bordersFullnames?: string[];
   name: {
     common: string;
     official: string;

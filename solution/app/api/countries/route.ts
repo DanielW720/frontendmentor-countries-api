@@ -55,7 +55,7 @@ export async function GET() {
       region: country.region,
       subregion: country.subregion,
       capital: country.capital,
-      tkd: country.tkd,
+      tld: country.tld,
       currencies,
       languages,
       borders: country.borders,
