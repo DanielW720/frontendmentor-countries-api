@@ -9,11 +9,14 @@ import { FilterDropdown } from "./FilterDropdown";
 export const CountryList = ({ countryList }: { countryList: Country[] }) => {
   const [countries, setCountries] = useState(countryList);
 
-  const filterCountries = (region: string) => {
-    const filteredCountries = countryList.filter(
-      (country) => country.region === region || country.region === "Americas"
-    );
-    setCountries(filteredCountries);
+  const filterCountries = (region: string | null) => {
+    if (!region) setCountries(countryList);
+    else {
+      const filteredCountries = countryList.filter(
+        (country) => country.region === region || country.region === "Americas"
+      );
+      setCountries(filteredCountries);
+    }
   };
 
   return (

@@ -10,7 +10,8 @@ async function fetchCountries() {
 export default async function page() {
   const data: Country[] = await fetchCountries();
 
-  const countries = data.slice(0, 9);
+  // const countries = data.slice(0, 9);
+  const countries = data;
 
   return <CountryList countryList={countries} />;
 }

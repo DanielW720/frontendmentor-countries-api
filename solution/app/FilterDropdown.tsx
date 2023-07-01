@@ -7,8 +7,10 @@ import { useState } from "react";
 export const FilterDropdown = ({
   filterCountries,
 }: {
-  filterCountries: (region: string) => void;
+  filterCountries: (region: string | null) => void;
 }) => {
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+
   return (
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger className="w-[225px]">
@@ -22,8 +24,18 @@ export const FilterDropdown = ({
               (region) => (
                 <DropdownMenu.Item
                   key={region}
-                  className="font-semibold my-1"
-                  onClick={() => filterCountries(region)}
+                  className={`cursor-pointer w-fit font-semibold my-2 ${
+                    region === selectedRegion && "text-blue-400"
+                  }`}
+                  onClick={() => {
+                    if (region === selectedRegion) {
+                      filterCountries(null);
+                      setSelectedRegion(null);
+                    } else {
+                      filterCountries(region);
+                      setSelectedRegion(region);
+                    }
+                  }}
                 >
                   {region}
                 </DropdownMenu.Item>
