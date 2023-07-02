@@ -7,14 +7,18 @@ type Inputs = {
   query: string;
 };
 
-export const Searchbar = () => {
+export const Searchbar = ({
+  searchCountries,
+}: {
+  searchCountries: (query: string) => void;
+}) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data.query);
+  const onSubmit: SubmitHandler<Inputs> = (data) => searchCountries(data.query);
 
   return (
     <div className="w-full max-w-[26rem]">
@@ -27,7 +31,7 @@ export const Searchbar = () => {
           type="text"
           {...register("query")}
           placeholder="Search for a country..."
-          className="bg-inherit outline-none overflow-hidden"
+          className="bg-inherit outline-none overflow-hidden w-full"
         />
         <input type="submit" className="hidden" />
       </form>

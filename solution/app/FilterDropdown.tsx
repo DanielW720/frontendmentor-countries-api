@@ -32,8 +32,9 @@ export const FilterDropdown = ({
                       filterCountries(null);
                       setSelectedRegion(null);
                     } else {
-                      filterCountries(region);
                       setSelectedRegion(region);
+                      if (region === "America") region = "Americas";
+                      filterCountries(region);
                     }
                   }}
                 >
