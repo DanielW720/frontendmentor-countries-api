@@ -2,15 +2,22 @@
 
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Region } from "./CountryList";
 
 type Inputs = {
   query: string;
 };
 
 export const Searchbar = ({
-  searchCountries,
+  filterCountries,
 }: {
-  searchCountries: (query: string) => void;
+  filterCountries: ({
+    region,
+    query,
+  }: {
+    region?: Region | undefined;
+    query?: RegExp | undefined;
+  }) => void;
 }) => {
   const {
     register,
@@ -18,7 +25,8 @@ export const Searchbar = ({
     watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => searchCountries(data.query);
+  const onSubmit: SubmitHandler<Inputs> = (data) =>
+    filterCountries({ query: new RegExp(data.query, "i") });
 
   return (
     <div className="w-full max-w-[26rem]">
@@ -31,7 +39,7 @@ export const Searchbar = ({
           type="text"
           {...register("query")}
           placeholder="Search for a country..."
-          className="bg-inherit outline-none overflow-hidden w-full"
+          className="bg-inherit outline-none overflow-hidden w-full text-blue-600 font-semibold"
         />
         <input type="submit" className="hidden" />
       </form>

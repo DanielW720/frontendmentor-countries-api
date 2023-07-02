@@ -1,6 +1,6 @@
 import "material-icons/iconfont/material-icons.css";
 import { Country } from "./types/country";
-import { CountryList } from "./ContryList";
+import { CountryList } from "./CountryList";
 
 async function fetchCountries() {
   const data = await fetch("http://localhost:3000/api/countries");

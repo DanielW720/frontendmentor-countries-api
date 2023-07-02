@@ -3,18 +3,27 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { FilterButton } from "./FilterButton";
 import { useState } from "react";
+import { Region } from "./CountryList";
 
 export const FilterDropdown = ({
   filterCountries,
+  region,
 }: {
-  filterCountries: (region: string | null) => void;
+  filterCountries: ({
+    region,
+    query,
+  }: {
+    region?: Region | undefined;
+    query?: RegExp | undefined;
+  }) => void;
+  region: Region;
 }) => {
-  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<Region>(region);
 
   return (
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger className="w-[225px]">
-        <FilterButton />
+        <FilterButton hasSelectedRegion={selectedRegion !== "All"} />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
@@ -25,16 +34,20 @@ export const FilterDropdown = ({
                 <DropdownMenu.Item
                   key={region}
                   className={`cursor-pointer w-fit font-semibold my-2 ${
-                    region === selectedRegion && "text-blue-400"
+                    region === selectedRegion && "text-blue-600"
                   }`}
                   onClick={() => {
                     if (region === selectedRegion) {
-                      filterCountries(null);
-                      setSelectedRegion(null);
+                      filterCountries({ region: "All" });
+                      setSelectedRegion("All");
                     } else {
-                      setSelectedRegion(region);
-                      if (region === "America") region = "Americas";
-                      filterCountries(region);
+                      setSelectedRegion(region as Region);
+                      filterCountries({
+                        region:
+                          region === "America"
+                            ? ("Americas" as Region)
+                            : (region as Region),
+                      });
                     }
                   }}
                 >
