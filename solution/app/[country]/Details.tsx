@@ -4,10 +4,15 @@ import { CountryFlag } from "./CountryFlag";
 export const Details = ({ country }: { country: Country }) => {
   // Extract native names
   let nativeNames;
-  if (country.name.nativeName)
-    nativeNames = Object.keys(country.name.nativeName)
-      .map((key) => country.name.nativeName[key].common)
-      .join(", ");
+  if (country.name.nativeName) {
+    let names: string[] = Object.keys(country.name.nativeName).map(
+      (key) => country.name.nativeName[key].common
+    );
+    // Remove duplicates eventual duplicates
+    nativeNames = [...new Set(names)];
+    // Make a pretty string
+    nativeNames = nativeNames.join(", ");
+  }
 
   // Extract currencies
   let currencies;
@@ -36,7 +41,7 @@ export const Details = ({ country }: { country: Country }) => {
     ));
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-oneThirdTwoThirds gap-10 justify-items-start mt-16 w-full lg:gap-0">
+    <article className="grid grid-cols-1 lg:grid-cols-oneThirdTwoThirds gap-10 justify-items-start mt-16 w-full lg:gap-0 text-veryDarkBlueText dark:text-white tracking-wide">
       <CountryFlag flags={country.flags} />
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
         <h2 className="text-3xl font-bold lg:col-start-1 lg:col-end-3 lg:mt-2">
@@ -44,47 +49,76 @@ export const Details = ({ country }: { country: Country }) => {
         </h2>
         <ul className="my-6">
           <li className="my-2">
-            <p className="font-semibold">
-              Native Name: {nativeNames ? nativeNames : "None"}
+            <p className="font-bold">
+              Native Name:{" "}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {nativeNames ? nativeNames : "None"}
+              </span>
             </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">
-              Population: {country.population.toLocaleString()}
+            <p className="font-bold">
+              Population:{" "}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {country.population.toLocaleString()}
+              </span>
             </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">Region: {country.region}</p>
+            <p className="font-bold">
+              Region:
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {" "}
+                {country.region}
+              </span>
+            </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">Sub Region: {country.subregion}</p>
+            <p className="font-bold">
+              Sub Region:{" "}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {country.subregion}
+              </span>
+            </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">Capital: {country.capital}</p>
+            <p className="font-bold">
+              Capital:
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {" "}
+                {country.capital}
+              </span>
+            </p>
           </li>
         </ul>
         <ul className="lg:mt-6">
           <li className="my-2">
-            <p className="font-semibold">
+            <p className="font-bold">
               Top Level Domain:{" "}
-              {country.tld.map((e) => (
-                <span key={e}>{e}</span>
-              ))}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {country.tld.map((e) => e).join(", ")}
+              </span>
             </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">
-              Currencies: {currencies ? currencies : "None"}
+            <p className="font-bold">
+              Currencies:{" "}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {currencies ? currencies : "None"}
+              </span>
             </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">
-              Languages: {languages ? languages : "None"}
+            <p className="font-bold">
+              Languages:{" "}
+              <span className="font-semibold text-darkGrayText dark:text-cardLightGrayText">
+                {languages ? languages : "None"}
+              </span>
             </p>
           </li>
         </ul>
         <div className="flex flex-col lg:flex-row lg:items-center justify-center lg:justify-start mt-6 lg:mt-0 lg:col-start-1 lg:col-end-3">
-          <h3 className="text-xl font-semibold lg:text-lg lg:mr-10">
+          <h3 className="text-xl font-bold lg:text-lg lg:mr-10">
             Border Countries:
           </h3>
           <div className="flex justify-center items-center mt-4 lg:mt-0">
@@ -92,7 +126,9 @@ export const Details = ({ country }: { country: Country }) => {
               {bordersFullnames ? (
                 bordersFullnames
               ) : (
-                <p className="text-sm rounded-sm dark:bg-darkBlue p-1">None</p>
+                <p className="text-sm rounded-sm dark:bg-darkBlue bg-darkGrayInput/10 p-1">
+                  None
+                </p>
               )}
             </div>
           </div>

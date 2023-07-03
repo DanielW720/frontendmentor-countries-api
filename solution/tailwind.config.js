@@ -22,6 +22,7 @@ module.exports = {
         cardLightGrayText: "#d8e0e9",
         // Light mode
         veryDarkBlueText: "hsl(200, 15%, 8%)",
+        darkGrayText: "hsl(0, 0%, 20%)",
         darkGrayInput: "hsl(0, 0%, 52%)",
         veryLightGrayBG: "hsl(0, 0%, 98%)",
         // Dark Mode Text & Light Mode Elements
