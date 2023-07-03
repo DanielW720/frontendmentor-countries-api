@@ -74,7 +74,7 @@ export const Details = ({ country }: { country: Country }) => {
             <p className="font-semibold">
               Top Level Domain:{" "}
               {country.tld.map((e) => (
-                <span>{e}</span>
+                <span key={e}>{e}</span>
               ))}
             </p>
           </li>
