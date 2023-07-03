@@ -20,6 +20,19 @@ export const FilterDropdown = ({
 }) => {
   const [selectedRegion, setSelectedRegion] = useState<Region>(region);
 
+  const filterClickHandler = (region: string) => {
+    if (region === selectedRegion) {
+      filterCountries({ region: "All" });
+      setSelectedRegion("All");
+    } else {
+      setSelectedRegion(region as Region);
+      filterCountries({
+        region:
+          region === "America" ? ("Americas" as Region) : (region as Region),
+      });
+    }
+  };
+
   return (
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger className="w-[225px]">
@@ -36,20 +49,7 @@ export const FilterDropdown = ({
                   className={`cursor-pointer w-fit font-semibold my-2 ${
                     region === selectedRegion && "text-blue-600"
                   }`}
-                  onClick={() => {
-                    if (region === selectedRegion) {
-                      filterCountries({ region: "All" });
-                      setSelectedRegion("All");
-                    } else {
-                      setSelectedRegion(region as Region);
-                      filterCountries({
-                        region:
-                          region === "America"
-                            ? ("Americas" as Region)
-                            : (region as Region),
-                      });
-                    }
-                  }}
+                  onClick={() => filterClickHandler(region)}
                 >
                   {region}
                 </DropdownMenu.Item>

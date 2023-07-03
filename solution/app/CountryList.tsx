@@ -48,7 +48,7 @@ export const CountryList = ({ countryList }: { countryList: Country[] }) => {
 
       // Check if there's a region hit
       let regionHit;
-      if (region === "All" || !region) regionHit = true;
+      if (region === "All") regionHit = true;
       else {
         regionHit = region
           ? currentRegionOfCountry === region
