@@ -23,7 +23,7 @@ export const CountryCard = ({ country }: { country: Country }) => {
             <li className="my-1">
               <span className="font-semibold">Population: </span>
               <span className="dark:text-cardLightGrayText">
-                {country.population}
+                {country.population.toLocaleString()}
               </span>
             </li>
             <li className="my-1">

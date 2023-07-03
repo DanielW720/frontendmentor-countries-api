@@ -5,31 +5,23 @@ export const Details = ({ country }: { country: Country }) => {
   // Extract native names
   let nativeNames;
   if (country.name.nativeName)
-    nativeNames = Object.keys(country.name.nativeName).map((key) => {
-      const nativeName = (country.name.nativeName[key] = {
-        official: country.name.nativeName[key].official,
-        common: country.name.nativeName[key].common,
-      });
-      return <span key={key}>{nativeName.common}</span>;
-    });
+    nativeNames = Object.keys(country.name.nativeName)
+      .map((key) => country.name.nativeName[key].common)
+      .join(", ");
 
   // Extract currencies
   let currencies;
   if (country.currencies)
-    currencies = Object.keys(country.currencies).map((key) => {
-      const currency = (country.currencies[key] = {
-        name: country.currencies[key].name,
-        symbol: country.currencies[key].symbol,
-      });
-      return <span key={key}>{currency.name}</span>;
-    });
+    currencies = Object.keys(country.currencies)
+      .map((key) => country.currencies[key].name)
+      .join(", ");
 
   // Extract languages
   let languages;
   if (country.languages)
-    languages = Object.keys(country.languages).map((key) => (
-      <span key={key}>{country.languages[key]}</span>
-    ));
+    languages = Object.keys(country.languages)
+      .map((key) => country.languages[key])
+      .join(", ");
 
   // Extract bordering countries ()
   let bordersFullnames;
@@ -53,11 +45,13 @@ export const Details = ({ country }: { country: Country }) => {
         <ul className="my-6">
           <li className="my-2">
             <p className="font-semibold">
-              Native Name: {nativeNames ? nativeNames[0] : "None"}
+              Native Name: {nativeNames ? nativeNames : "None"}
             </p>
           </li>
           <li className="my-2">
-            <p className="font-semibold">Population: {country.population}</p>
+            <p className="font-semibold">
+              Population: {country.population.toLocaleString()}
+            </p>
           </li>
           <li className="my-2">
             <p className="font-semibold">Region: {country.region}</p>
