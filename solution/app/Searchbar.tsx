@@ -34,9 +34,8 @@ export const Searchbar = ({
         onSubmit={handleSubmit(onSubmit)}
         className="shadow-mdSymmetric h-16 flex flex-row items-center justify-start dark:bg-darkBlue rounded-md"
       >
-        <button type="submit">
-          <span className="material-icons-outlined mx-6">search</span>
-        </button>
+        <span className="material-icons-outlined mx-6">search</span>
+
         <input
           type="text"
           {...register("query")}

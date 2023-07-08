@@ -52,7 +52,8 @@ export const CountryList = ({ countryList }: { countryList: Country[] }) => {
       else {
         regionHit = region
           ? currentRegionOfCountry === region
-          : currentRegionOfCountry === countries.region;
+          : currentRegionOfCountry === countries.region ||
+            countries.region === "All";
       }
 
       // Check if there's a search hit
