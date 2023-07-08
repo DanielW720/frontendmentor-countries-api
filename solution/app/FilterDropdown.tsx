@@ -47,7 +47,8 @@ export const FilterDropdown = ({
                 <DropdownMenu.Item
                   key={region}
                   className={`cursor-pointer w-fit font-semibold my-2 ${
-                    region === selectedRegion && "text-blue-600"
+                    region === selectedRegion &&
+                    "text-blue-600 dark:text-blue-300"
                   }`}
                   onClick={() => filterClickHandler(region)}
                 >

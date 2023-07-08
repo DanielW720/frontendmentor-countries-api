@@ -34,13 +34,15 @@ export const Searchbar = ({
         onSubmit={handleSubmit(onSubmit)}
         className="shadow-mdSymmetric h-16 flex flex-row items-center justify-start dark:bg-darkBlue rounded-md"
       >
-        <span className="material-icons-outlined mx-6">search</span>
+        <button type="submit">
+          <span className="material-icons-outlined mx-6 mt-2">search</span>
+        </button>
 
         <input
           type="text"
           {...register("query")}
           placeholder="Search for a country..."
-          className="bg-inherit outline-none overflow-hidden w-full text-blue-600 font-semibold dark:caret-white caret-black"
+          className="bg-inherit outline-none overflow-hidden w-full text-blue-600 dark:text-blue-300 font-semibold dark:caret-white caret-black"
         />
         <input type="submit" className="hidden" />
       </form>
