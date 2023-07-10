@@ -2,6 +2,12 @@ import "material-icons/iconfont/material-icons.css";
 import { Country } from "./types/country";
 import { CountryList } from "./CountryList";
 
+export const metadata = {
+  title: "Frontend Mentor Countries API app",
+  description:
+    "Frontend Mentor challange app with with the Countries REST API.",
+};
+
 async function fetchCountries() {
   const data = await fetch("http://localhost:3000/api/countries");
   return data.json();

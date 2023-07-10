@@ -11,12 +11,6 @@ const nunitoSans = Nunito_Sans({
   subsets: ["cyrillic"],
 });
 
-export const metadata = {
-  title: "Frontend Mentor Countries API app",
-  description:
-    "Frontend Mentor challange app with with the Countries REST API.",
-};
-
 export default function RootLayout({
   children,
 }: {
