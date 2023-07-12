@@ -21,7 +21,7 @@ export default async function page() {
  * Fetch all countries.
  * @returns Promise<NextResponse<any>>
  */
-export async function fetchCountries() {
+async function fetchCountries() {
   const res = await fetch(DATA_SOURCE_URL);
 
   if (!res.ok) throw new Error("Couldn't fetch countries");
