@@ -6,11 +6,6 @@ export const metadata = {
   title: "Frontend Mentor Countries API app",
   description:
     "Frontend Mentor challange app with with the Countries REST API.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 const DATA_SOURCE_URL = "https://restcountries.com/v3.1/all";
