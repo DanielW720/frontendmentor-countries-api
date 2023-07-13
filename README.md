@@ -13,19 +13,24 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode _(optional)_
+- Toggle the color scheme between light and dark mode
+
+### The design
+
+<img src="design/desktop-design-home-dark.jpg" width=80% >
 
 ### Screenshot
 
-![](./screenshot.jpg)
+<img src="screenshot.png" width=80% >
 
 ### Links
 
 - Solution URL: [Add solution URL here](./solution)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://frontendmentor-countries-api.vercel.app/)
 
 ### Built with
 
-- [Next.js](https://nextjs.org/) - React framework
+- [Next.js 13](https://nextjs.org/) - React framework
 - [React](https://reactjs.org/) - JS library
 - [Vercel](https://vercel.com/) - Frontend cloud for hosting, workflow and infrastructure
+- TailwindCSS

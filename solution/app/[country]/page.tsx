@@ -26,9 +26,7 @@ export default async function page({
  * @returns Promise<NextResponse<Country>>
  */
 async function fetchCountry(country: string): Promise<Country> {
-  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
 
   if (!res.ok) throw new Error("Couldn't fetch country");
 
