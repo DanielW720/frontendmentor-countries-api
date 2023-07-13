@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Country } from "../types/country";
 import { CountryFlag } from "./CountryFlag";
 
@@ -32,12 +33,13 @@ export const Details = ({ country }: { country: Country }) => {
   let bordersFullnames;
   if (country.bordersFullnames)
     bordersFullnames = country.bordersFullnames?.map((borderCountry) => (
-      <div
+      <Link
         key={borderCountry}
+        href={`/${borderCountry}`}
         className="py-1 px-4 shadow-lgSymmetric font-semibold w-28 flex justify-center items-center text-sm rounded-sm dark:bg-darkBlue"
       >
         {borderCountry}
-      </div>
+      </Link>
     ));
 
   return (
