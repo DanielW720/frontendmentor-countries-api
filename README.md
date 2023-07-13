@@ -29,4 +29,3 @@ Users should be able to:
 - [Next.js](https://nextjs.org/) - React framework
 - [React](https://reactjs.org/) - JS library
 - [Vercel](https://vercel.com/) - Frontend cloud for hosting, workflow and infrastructure
-- Mobile-first workflow
